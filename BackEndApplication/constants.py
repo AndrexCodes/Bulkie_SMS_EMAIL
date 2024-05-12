@@ -1,0 +1,7 @@
+user="Andrew"
+password="andrew"
+database="bulkcomm"
+host="127.0.0.1"
+admin_email = "ionextechsolutions@gmail.com"
+admin_password = "xjhd nfyr qbib orap"
+home_url = "http://127.0.0.1:5000"

@@ -1,0 +1,27 @@
+{
+    "sms_response": 
+    {
+        "code": [200,404],
+        "type": "sms",
+        "phone": "254795359098",
+        "id": ["122132", ""],
+        "balance": 100,
+        "datetime": "2015-12-12T12:12"
+    },
+    "email_response":
+    {
+        "code": [200,404],
+        "type": "email",
+        "email": ["mail", "mail"],
+        "id": ["122132", ""],
+        "balance": 100,
+        "datetime": "2015-12-12T12:12"
+    },
+    "sms_request":
+    {
+        "app_key": "",
+        "app_secret": "",
+        "meta_data": {},
+        "datetime": "2015-12-12T12:12"
+    }
+}

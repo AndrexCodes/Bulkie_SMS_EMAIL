@@ -1,0 +1,84 @@
+#verification_screen{
+    background-color: var(--main_colour);
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    animation: show_ver 1.4s;
+}
+
+@keyframes show_ver {
+    from{opacity: 0;}
+}
+
+#verification_screen .top_bar{
+    background-color: white;
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top_bar p{
+    font-size: 12.5px;
+    color: var(--main_colour);
+    font-weight: 700;
+}
+
+.top_bar img{
+    height: 50%;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+#verification_screen form{
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7%;
+}
+
+#verification_screen form p{
+    margin: 0;
+    font-weight: 600;
+    font-size: 13px;
+    color: aliceblue;
+}
+
+#verification_screen form .code_boxes{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#verification_screen form .code_boxes input{
+    width: 13%;
+    aspect-ratio: 1;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 10vw;
+    outline: 0;
+    transition: .4s;
+    border: 2px solid rgb(244, 42, 255);
+}
+
+#verification_screen form .code_boxes input:focus{
+    transform: scale(1.2);
+    transition: .4s;
+}
+
+#verification_screen form button{
+    width: max-content;
+    padding: 7px 30px 7px 30px;
+    border-radius: 100px;
+    border: 2px solid white;
+    color: white;
+    background-color: var(--main_colour);
+}

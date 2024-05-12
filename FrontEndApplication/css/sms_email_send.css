@@ -1,0 +1,160 @@
+#sms_email_send{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,transparent 34%, var(--bg_colour) 35%, var(--bg_colour) 40%, transparent 41%, transparent 59%, var(--bg_colour)  60%, var(--bg_colour) 65%, transparent 66%),linear-gradient(135deg,transparent 34%, var(--bg_colour) 35%, var(--bg_colour) 40%, transparent 41%, transparent 59%, var(--bg_colour)  60%, var(--bg_colour) 65%, transparent 66%);
+    background-size: 2em 2em;
+    display: none;
+    background-color: #ffffff;
+    opacity:1;
+    z-index: 1000;
+    animation: side_r .5s;
+}
+
+@keyframes side_r {
+    from{transform: translateX(100%);}
+}
+
+
+#sms_email_send header{
+    background-color: var(--main_colour);
+    /* background-color: rgb(125, 255, 255); */
+    width: 100%;
+    height: 14vw;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#sms_email_send header img{
+    height: 60%;
+    margin: 2%;
+}
+
+#sms_email_send header p{
+    margin: 0;
+    background-color: white;
+    padding: 1.5%;
+    border-radius: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 900;
+}
+
+#sms_email_send .container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sms_email_send .container .input_field_1{
+    background-color: gray;
+    width: max-content;
+    height: max-content;
+    border-radius: 10px;
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+#sms_email_send .container .input_field_1 input{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    height: 10vw;
+    width: 22vw;
+    z-index: 1;
+    opacity: 0;
+}
+
+#send_sms:checked + label{
+    background-color: var(--main_colour);
+    color: aliceblue;
+}
+
+#send_email:checked + label{
+    background-color: var(--main_colour);
+    color: aliceblue;
+}
+
+#sms_email_send .container .input_field_1 label{
+    position: absolute;
+    padding: 2%;
+    width: 45%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sms_email_send .container .input_field{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4%;
+}
+
+#sms_email_send .container .input_field label{
+    font-weight: 900;
+    font-size: 4vw;
+    margin: 0;
+}
+
+.input_field input{
+    border: 0;
+    background-color: gray;
+    border: 1.5px solid var(--main_colour);
+    border-radius: 10px;
+    outline: 0;
+}
+
+.input_field textarea{
+    border: 0;
+    background-color: gray;
+    height: 50vh;
+    border: 1.5px solid var(--main_colour);
+    border-radius: 10px;
+    outline: 0;
+}
+
+.input_field p{
+    margin: 0;
+    font-weight: 800;
+    font-size: 4vw;
+    width: 40%;
+    text-align: center;
+    background-color: var(--main_colour);
+    padding: 2%;
+    border-radius: 40px;
+    color: aliceblue;
+    position: relative;
+    transition: 1s;
+}
+
+.input_field p::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--main_colour);
+    border: 2px solid aliceblue;
+    top: 0;
+    right: 0;
+    transform: translateY(-6%) translateX(2%);
+}
+
+.input_field button{
+    width: max-content;
+    padding: 2% 10% 2% 10%;
+    border-radius: 50px;
+    background-color: var(--main_colour);
+    border: 0;
+    align-self: center;
+    color: aliceblue;
+    font-weight: 800;
+}

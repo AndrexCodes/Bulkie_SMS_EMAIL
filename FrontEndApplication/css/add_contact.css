@@ -1,0 +1,173 @@
+#add_contact{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,transparent 34%, var(--bg_colour) 35%, var(--bg_colour) 40%, transparent 41%, transparent 59%, var(--bg_colour)  60%, var(--bg_colour) 65%, transparent 66%),linear-gradient(135deg,transparent 34%, var(--bg_colour) 35%, var(--bg_colour) 40%, transparent 41%, transparent 59%, var(--bg_colour)  60%, var(--bg_colour) 65%, transparent 66%);
+    background-size: 2em 2em;
+    background-color: #ffffff;
+    opacity:1;
+    display: flex;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: slide_x .5s;
+}
+
+@keyframes slide_x {
+  from{transform: translateX(100%);}
+}
+
+#add_contact header{
+    background-color: var(--main_colour);
+    width: 100%;
+    height: 13vw;
+    display: flex;
+    align-items: center;
+}
+
+#add_contact header img{
+    height: 55%;
+    margin: 2%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 86%;
+    max-width: 350px;
+    background-color: #ffffff00;
+    padding: 0 20px 20px 20px;
+    /* border-radius: 20px; */
+    position: relative;
+  }
+  
+  .title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin: 5%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+  
+  .title::before,.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: royalblue;
+  }
+  
+  .title::before {
+    width: 18px;
+    height: 18px;
+    background-color: royalblue;
+  }
+  
+  .title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+  }
+  
+  .message, .signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+  }
+  
+  .signin {
+    text-align: center;
+  }
+  
+  .signin a {
+    color: royalblue;
+  }
+  
+  .signin a:hover {
+    text-decoration: underline royalblue;
+  }
+  
+  .flex {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .flex label{
+    display: flex;
+    width: 45%;
+    gap: 6px;
+  }
+  
+  .form label {
+    position: relative;
+    width: 100%;
+    left: -4%;
+  }
+  
+  .form label .input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+  }
+  
+  .form label .input + span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+  }
+  
+  .form label .input:placeholder-shown + span {
+    top: 15px;
+    font-size: 0.9em;
+  }
+  
+  .form label .input:focus + span,.form label .input:valid + span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+  
+  .form label .input:valid + span {
+    color: var(--main_colour);
+  }
+  
+  .submit {
+    border: none;
+    outline: none;
+    background-color: var(--main_colour);
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+  }
+  
+  .submit:hover {
+    background-color: var(--main_colour);
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }

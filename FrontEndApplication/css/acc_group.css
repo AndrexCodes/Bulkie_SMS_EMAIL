@@ -1,0 +1,120 @@
+#acc_groups{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: linear-gradient(45deg,transparent 34%, var(--bg_colour) 35%, var(--bg_colour) 40%, transparent 41%, transparent 59%, var(--bg_colour)  60%, var(--bg_colour) 65%, transparent 66%),linear-gradient(135deg,transparent 34%, var(--bg_colour) 35%, var(--bg_colour) 40%, transparent 41%, transparent 59%, var(--bg_colour)  60%, var(--bg_colour) 65%, transparent 66%);
+    background-size: 2em 2em;
+    background-color: #ffffff;
+    opacity:1;
+    animation: side_y .5s;
+}
+
+@keyframes side_y {
+    from{transform: translateX(100%);}
+}
+
+#acc_groups > button{
+    background-color: var(--main_colour);
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 0;
+    position: fixed;
+    font-size: 10vw;
+    color: #ffffff;
+    bottom: 2%;
+    right: 2%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#acc_groups > button img{
+    height: 60%;
+}
+
+#acc_groups header{
+    background-color: var(--main_colour);
+    width: 100%;
+    height: 14vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#acc_groups header img{
+    height: 60%;
+    margin: 2%;
+}
+
+#acc_groups header p{
+    font-weight: 1000;
+    margin: 0;
+    font-size: 6vw;
+    color: aliceblue;
+}
+
+#acc_groups .container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#acc_groups .container .unit_group{
+    background-color: rgb(213, 213, 213);
+    /* background-color: rgb(255, 186, 255); */
+    width: 95%;
+    height: 18vw;
+    border-radius: 8px;
+    margin-top: 2%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#acc_groups .container .unit_group::before{
+    content: "";
+    height: 90%;
+    width: 3%;
+    position: absolute;
+    border-radius: 30px;
+    background-color: var(--main_colour);
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+}
+
+#acc_groups .container .unit_group p{
+    margin: 2%;
+}
+
+#acc_groups .container .unit_group p:first-child{
+    font-weight: 1000;
+    font-size: 5vw;
+    background-color: var(--main_colour);
+    width: max-content;
+    padding: 1% 2% 1% 2%;
+    border-radius: 30px;
+    color: aliceblue;
+}
+
+#acc_groups .container .unit_group p:nth-child(2){
+    font-size: 4vw;
+    font-weight: 900;
+}
+
+#acc_groups .container .unit_group img{
+    font-weight: 1000;
+    height: 40%;
+    font-size: 10vw;
+    transform: rotateZ(45deg);
+    position: absolute;
+    right: 12%;
+}

@@ -1,0 +1,7 @@
+Flask
+Flask-Cors
+passlib
+mysql-connector-python
+DateTime
+threaded
+secure-smtplib

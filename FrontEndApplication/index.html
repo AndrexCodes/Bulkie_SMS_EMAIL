@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --bg_colour: rgb(255, 60, 255, .4);
+            --main_colour: rgb(205, 0, 205);
+            --splash_colour: rgba(0, 3, 205, 0.365);
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+    <link rel="stylesheet" href="css/create_acc.css">
+    <link rel="stylesheet" href="css/dash_screen.css">
+    <link rel="stylesheet" href="css/acc_group.css">
+    <link rel="stylesheet" href="css/sms_email_send.css">
+    <link rel="stylesheet" href="css/group_contacts.css">
+    <link rel="stylesheet" href="css/add_contact.css">
+    <link rel="stylesheet" href="css/account_screen.css">
+    <link rel="stylesheet" href="css/loading_screen.css">
+    <link rel="stylesheet" href="css/history_screen.css">
+    <link rel="stylesheet" href="css/splash_screen.css">
+    <link rel="stylesheet" href="css/verification_screen.css">
+</head> 
+<body onload="splashdelay()">
+    <div id="splash_screen">
+        <img src="img/splash_logo.png" alt="">
+        <p>Ionex Tech v1.0.0</p>
+    </div>
+    <div id="create_account_screen">
+        <header>
+            <p onclick="screenManager(1)">Sign Up</p>
+        </header>
+        <form action="#" name="newAccount" onsubmit="newAccountSetUp(); return false">
+            <div class="unit_input">
+                <input type="text" name="fname" id="fname" placeholder="First Name" required>
+            </div>
+            <div class="unit_input">
+                <input type="text" name="lname" id="lname" placeholder="Last Name" required>
+            </div>
+            <div class="unit_input">
+                <input type="number" name="phone" id="phone" placeholder="Phone" required>
+            </div>
+            <div class="unit_input">
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="unit_input">
+                <input type="password" name="password" id="password" placeholder="password" required>
+            </div>
+            <div class="unit_input">
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password" required>
+            </div>
+            <div class="unit_input">
+                <input type="submit" value="Sign Up">
+            </div>
+        </form>
+    </div>
+    <div id="verification_screen">
+        <div class="top_bar">
+            <p>Account Verification</p>
+            <img src="img/splash_logo.png" alt="">
+        </div>
+        <form action="" name="code_form" onsubmit="verifyAccount(); return false">
+            <p>Check Email InBox</p>
+            <div class="code_boxes">
+                <input type="text" name="code_1" id="code_1" maxlength="1" required>
+                <input type="text" name="code_2" id="code_2" maxlength="1" required>
+                <input type="text" name="code_3" id="code_3" maxlength="1" required>
+                <input type="text" name="code_4" id="code_4" maxlength="1" required>
+            </div>
+            <button>Verify</button>
+            <p style="width: 100%;padding: 0 0 0 14px;font-weight: 550;">Resend <span id="timer">00:60</span></p>
+        </form>
+    </div>
+    <div id="sign_in_account">
+        <header>
+            <p onclick="screenManager(0)">
+                Sign In
+            </p>
+        </header>
+        <form action="#" name="sign_in_form" onsubmit="signIn();return false" style="justify-content: center; gap: 5%;">
+            <div class="unit_input">
+                <input type="email" name="sign_in_email" id="sign_in_email" placeholder="Email">
+            </div>
+            <div class="unit_input">
+                <input type="password" name="sign_in_password" id="sign_in_password" placeholder="password">
+            </div>
+            <div class="unit_input">
+                <input type="submit" value="Sign In">
+            </div>
+            <p style="font-size: 10px;padding: 4px;" onclick="PasswordReset()">Forgot Password? RESET</p>
+        </form>
+    </div>
+    <div id="dashboard_screen">
+        <header>
+            <img src="img/home.png" alt="">
+            <div class="data_box">
+                <span>Welcome</span>
+                <span id="main_name_display">Institution Name</span>
+            </div>
+            <img src="img/menu(2).png" alt="" style="background-color: transparent;padding: 0;margin: 0;border-radius: 0;height: 40%;position: absolute;right: 13px;">
+            <input type="checkbox" name="top_checker" id="top_checker">
+            <div id="view_checker">
+                <button onclick="screenManager(7)">My Account</button>
+                <button onclick="screenManager(8)">History</button>
+                <button onclick="logOut()">Log Out</button>
+            </div>
+        </header>
+        <div class="container">
+            <div class="container_bottom">
+                <img src="img/home.png" alt="">
+                <div class="inner_data">
+                    <p>Account Name</p>
+                    <p id="main_name_display_2">Mangu High School</p>
+                    <p>Account No</p>
+                    <p id="update_acc_no_1">#0701910146</p>
+                    <p>Status</p>
+                    <p id="acc_state_1">Activated</p>
+                </div>
+            </div>
+            <div class="container_top">
+                <div class="unit_info" onclick="screenManager(5)">
+                    <p id="no_of_contacts">0</p>
+                    <p>Phone Book</p>
+                    <img src="img/back_img.png" alt="">
+                </div>
+                <div class="unit_info" onclick="screenManager(3)">
+                    <p id="no_of_communities">0</p>
+                    <p>Communities</p>
+                    <img src="img/back_img.png" alt="">
+                </div>
+                <div class="unit_info">
+                    <div class="email_box">
+                        <img src="img/email.png" alt="">
+                    </div>
+                    <p>One Time Sents</p>
+                    <img src="img/back_img.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="acc_groups">
+        <button onclick="newGroup()" id="add_new_group_btn">+</button>
+        <button onclick="deleteCommunities()" id="delete_old_group_btn" style="display: none;"><img src="img/delete.png" alt=""></button>
+        <header>
+            <img src="img/back_img.png" alt="" onclick="screenManager(2)">
+            <p style="position: absolute;left: 50%;transform: translateX(-50%);">Communities</p>
+            <img src="img/send.png" alt="" style="height: 45%;width: 8%;display: none;" onclick="screenManager(4);document.getElementById(`schedule_timer`).style.display = `none`" id="send_to_btn">
+        </header>
+        <div class="container" id="all_communities">
+            
+        </div>
+    </div>
+    <div id="sms_email_send">
+        <header>
+            <img src="img/back_img.png" alt="" onclick="screenManager(3)">
+        </header>
+        <form class="container" name="send_details" onsubmit="sendBulkie();return false">
+            <div class="input_field_1">
+                <input type="checkbox" name="send_sms" id="send_sms">
+                <label for="send_sms" style="transform: translateX(-50%); border-radius: 10px 0 0 10px;">SMS</label>
+                <input type="checkbox" name="send_email" id="send_email">
+                <label for="send_email" style="transform: translateX(50%); border-radius: 0 10px 10px 0">Email</label>
+            </div>
+            <div class="input_field">
+                <label for="">Subject</label>
+                <input type="text" name="send_subject" id="send_subject" style="height: 10vw;" required>
+            </div>
+            <div class="input_field">
+                <label for="">Body</label>
+                <textarea name="send_body" id="send_body" cols="30" rows="10" required>
+
+                </textarea>
+            </div>
+            <div class="input_field" style="display: flex;flex-direction: row;justify-content: space-around;">
+                <p onclick="ActivateSchedule(this)" style="background-color: gray;">Scedule</p>
+            </div>
+            <div class="input_field" id="schedule_timer" style="display: none;">
+                <label for="">Schedule</label>
+                <input type="datetime-local" name="send_schedule" id="send_schedule" style="height: 10vw;">
+            </div>
+            <div class="input_field">
+                <button>Send</button>
+            </div>
+        </form>
+    </div>
+    <div id="group_contacts">
+        <header>
+            <img src="img/back_img.png" alt="" onclick="screenManager(2)">
+            <input type="text" name="contact_search" id="contact_search" placeholder="Search here" oninput="ContactSearch()">
+            <img src="img/filter.png" alt="" style="position: absolute; z-index: 1; height: 30%;bottom: 0;right: 0; transform: translateY(100%) translateX(-220%);">
+            <img src="img/add.png" alt="" onclick="screenManager(6)">
+        </header>
+        <div class="container" id="all_contacts">
+            
+        </div>
+    </div>
+    <div id="add_contact">
+        <header>
+            <img src="img/back_img.png" alt="" onclick="screenManager(5)">
+        </header>
+        <form class="form" name="new_contact" onsubmit="newContact(); return false">
+            <p class="title">New Contact </p>
+            <div class="flex">
+                <label>
+                    <input required="" placeholder="" type="text" class="input" id="fname" name="fname">
+                    <span>Firstname</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="text" class="input" id="lname" name="lname">
+                    <span>Lastname</span>
+                </label>
+            </div>  
+                    
+            <label>
+                <input required="" placeholder="" type="text" class="input" id="phone" name="phone" pattern="07[0-9]{8}">
+                <span>Phone</span>
+            </label> 
+
+            <label>
+                <input required="" placeholder="" type="email" class="input" id="email" name="email">
+                <span>Email</span>
+            </label>
+            
+            <label>
+                <input required="" placeholder="" type="number" class="input" id="refcode" name="refcode">
+                <span>Reference Code</span>
+            </label> 
+                
+            <label>
+                <select name="group_name" id="group_name" class="input">
+                    
+                </select>
+                <span>Group</span>
+            </label>
+            <button class="submit">Submit</button>
+        </form>
+    </div>
+    <div id="account_screen">
+        <header>
+            <img src="img/back_img.png" alt="" onclick="screenManager(2);document.getElementById(`top_checker`).checked = false">
+            <img src="img/edit.png" alt="" id="enable_edit_btn" onclick="EditAccount(true)" style="transform: rotateZ(45deg);margin-right: 5%;">
+        </header>
+        <form class="container" name="account_updates" onsubmit="EditAccount(false); return false">
+            <p id="acc_name_display">Institution Name</p>
+            <img src="img/profile.png" alt="">
+            <div class="unit_account_info">
+                <p>Account Name</p>
+                <input type="text" name="update_acc_name" id="update_acc_name" value="Institution Name" readonly required>
+            </div>
+            <div class="unit_account_info">
+                <p>SMS ID <br> Acc/B</p>
+                <p id="acc_sms_details">ManguHigh <br> 4000</p>
+            </div>
+            <div class="unit_account_info">
+                <p>Email ID <br> Acc/B</p>
+                <p id="acc_email_details">info@manguhigh.com <br> 4000</p>
+            </div>
+            <div class="unit_account_info">
+                <p>App Password</p>
+                <input type="password" name="update_acc_pass" id="update_acc_pass" value="0000 0000 0000 0000" pattern="[A-Za-z0-9]{4} [A-Za-z0-9]{4} [A-Za-z0-9]{4} [A-Za-z0-9]{4}" readonly required>
+            </div>
+            <div class="unit_account_info">
+                <p>Account Number</p>
+                <input type="number" name="update_acc_no" id="update_acc_no" value="0701910146" readonly required>
+            </div>
+            <div class="unit_account_info">
+                <p>Account State</p>
+                <p id="acc_state">Inactive</p>
+            </div>
+            <div class="unit_account_info" id="account_edit_update" style="margin-top: 5%;display: none;">
+                <button>Submit</button>
+            </div>
+        </form>
+    </div>
+    <div id="loading_screen">
+        <div class="loading_block">
+        </div>
+    </div>
+    <div id="history_screen">
+        <header>
+            <img src="img/cancel.png" alt="" onclick="screenManager(2);document.getElementById(`top_checker`).checked = false">
+            <p>History</p>
+        </header>
+        <div class="history_container" id="all_history">
+                
+        </div>
+    </div>
+    <div id="alert_box" style="z-index: 1; display: none;justify-content: center;align-items: center; width: 100%;height: 100%;position: fixed;top: 0;left: 0;background-color: rgba(247, 247, 247, 0.744);">
+        <div id="alert_box_1" style="background-color: var(--main_colour);border-radius: 10px; width: 80%;height: max-content;padding: 0 0 4% 0;">
+            <header style="border-bottom: 1px solid aliceblue; width: 100%; height: max-content;">
+                <p style="background-color: white; margin: 1% 0 1% 4%; font-size: 4.5vw;letter-spacing: 2px; color: var(--main_colour); font-weight: 900;padding: 1% 3%; width: max-content;border-radius: 10px;">Alert</p>
+            </header>
+            <p id="main_message" style="font-size: 4vw; margin:4% 0 0 1%;text-align: center;color: aliceblue;">
+                Sorry Account Already Exists
+            </p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
